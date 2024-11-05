@@ -204,19 +204,19 @@ void Clab2View::CrtajFiguru(CDC* pDC)
 	pDC->Ellipse(-10, -10, 10, 10);
 	*/
 
-	Translate(pDC, 250, 17 * this->gridDim, false);
-	Rotate(pDC, prviUgao, false);	
+	Translate(pDC, 250, 17 * this->gridDim, false); // pomeranje centra koord. sistema
+	Rotate(pDC, prviUgao, false);
 	pDC->PlayMetaFile(this->svetliDeo, scaledRect);
 
 	pDC->Ellipse(-10, -10, 10, 10);
 
-	Scale(pDC, maliKaktus / velikiKaktus, 1.0f, false);
+	Scale(pDC, maliKaktus / velikiKaktus, 1.0f, false); // nova_dim_x / stara_dim_x
 	Translate(pDC, 0, -3 * this->gridDim, false);
 
 	pDC->PlayMetaFile(this->tamniDeo, scaledRect);
-	Scale(pDC, velikiKaktus / maliKaktus, 1.0f, false);
+	Scale(pDC, velikiKaktus / maliKaktus, 1.0f, false); // reset dim
 	Rotate(pDC, PI / 4, false);
-	Scale(pDC, maliKaktus / velikiKaktus, 1.0f, false);
+	Scale(pDC, maliKaktus / velikiKaktus, 1.0f, false); // nova_dim_x / stara_dim_x
 
 	pDC->PlayMetaFile(this->tamniDeo, scaledRect);
 	Scale(pDC, velikiKaktus / maliKaktus, 1.0f, false);
